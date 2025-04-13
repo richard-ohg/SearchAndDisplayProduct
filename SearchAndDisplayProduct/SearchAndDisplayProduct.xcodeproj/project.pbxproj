@@ -29,6 +29,13 @@
 				Common/Extensions/IntExtension.swift,
 				Common/Extensions/StringExtension.swift,
 				Common/Extensions/UIColorExtension.swift,
+				Networking/Errors/ApiError.swift,
+				Networking/Protocols/ApiClientServiceProtocol.swift,
+				Networking/StatusResponse/HttpResponseStatus.swift,
+				Networking/URLBuilder/ContentMode.swift,
+				Networking/URLBuilder/Method.swift,
+				Networking/URLBuilder/Path.swift,
+				Networking/URLBuilder/URLBuilder.swift,
 			);
 			target = 79F25B292DAA4B9400024BDF /* SearchAndDisplayProductTests */;
 		};
