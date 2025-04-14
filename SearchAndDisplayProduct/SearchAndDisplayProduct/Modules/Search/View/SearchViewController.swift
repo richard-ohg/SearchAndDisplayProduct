@@ -12,14 +12,28 @@ class SearchViewController: UIViewController {
 
     var presenter: Search_ViewToPresenterProtocol?
 
+    lazy var searchBar: UISearchBar = {
+        let searchBar = UISearchBar()
+        searchBar.delegate = self
+        return searchBar
+    }()
+
+    lazy var searchView = {
+        return SearchView(delegate: self)
+    }()
+
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        setSearchBar()
+        self.view = searchView
+    }
 
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = self.view.bounds
-        gradientLayer.colors = [UIColor.white.cgColor, UIColor.getColorWith(hex: "#0db2b5").cgColor]
-        self.view.layer.insertSublayer(gradientLayer, at: 0)
+    private func setSearchBar() {
+        setupClearNavBar()
+        let navBar = self.navigationController?.navigationBar
+        navBar?.topItem?.hidesBackButton = true
+        navBar?.topItem?.titleView = searchBar
     }
 }
 
