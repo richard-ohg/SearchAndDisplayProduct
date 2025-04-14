@@ -26,8 +26,8 @@ class ProductListViewController: UIViewController {
 // MARK: - P R E S E N T E R · T O · V I E W
 extension ProductListViewController: ProductList_PresenterToViewProtocol {
 
-    func displayProductList() {
-
+    func displayProductList(viewModel: [ProductListViewModel]) {
+        print(viewModel)
     }
 
     func showError() {

@@ -27,7 +27,7 @@ protocol ProductList_PresenterToInteractorProtocol: AnyObject {
 // MARK: INTERACTOR -> PRESENTER
 protocol ProductList_InteractorToPresenterProtocol: AnyObject {
 
-    func presentProductList()
+    func presentProductList(response: SearchProductsResponse)
     func showError()
 }
 
@@ -35,7 +35,7 @@ protocol ProductList_InteractorToPresenterProtocol: AnyObject {
 protocol ProductList_PresenterToViewProtocol: AnyObject {
     var presenter: ProductList_ViewToPresenterProtocol? { get set }
 
-    func displayProductList()
+    func displayProductList(viewModel: [ProductListViewModel])
     func showError()
 }
 

@@ -16,7 +16,7 @@ class ProductListInteractor: ProductList_PresenterToInteractorProtocol {
             let result = await RequestManager.shared.fetchProducts(searchTerm: searchTerm)
             switch result {
             case .success(let success):
-                presenter?.presentProductList()
+                presenter?.presentProductList(response: success)
             case .failure(let failure):
                 presenter?.showError()
             }

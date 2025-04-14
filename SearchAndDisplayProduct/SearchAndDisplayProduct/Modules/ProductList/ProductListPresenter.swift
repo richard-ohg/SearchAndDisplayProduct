@@ -14,6 +14,8 @@ class ProductListPresenter: ProductList_ViewToPresenterProtocol {
     var interactor: ProductList_PresenterToInteractorProtocol?
     var router: ProductList_PresenterToRouterProtocol?
 
+    let mapper: ProductListMapper = ProductListMapper()
+
     func fetchProductList(searchTerm: String) {
         interactor?.fetchProductList(searchTerm: searchTerm)
     }
@@ -22,8 +24,9 @@ class ProductListPresenter: ProductList_ViewToPresenterProtocol {
 // MARK: - I N T E R A C T O R · T O · P R E S E N T E R
 extension ProductListPresenter: ProductList_InteractorToPresenterProtocol {
 
-    func presentProductList() {
-        view?.displayProductList()
+    func presentProductList(response: SearchProductsResponse) {
+        let viewModel = response.results.map(mapper.map(entity:))
+        view?.displayProductList(viewModel: viewModel)
     }
 
     func showError() {

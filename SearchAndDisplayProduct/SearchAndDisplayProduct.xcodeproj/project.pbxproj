@@ -42,6 +42,8 @@
 				Modules/ProductList/ProductListProtocols.swift,
 				Modules/ProductList/ProductListRouter.swift,
 				Modules/ProductList/ProductListViewController.swift,
+				Modules/ProductList/ViewModel/ProductListMapper.swift,
+				Modules/ProductList/ViewModel/ProductListViewModel.swift,
 				Modules/Search/SearchInteractor.swift,
 				Modules/Search/SearchPresenter.swift,
 				Modules/Search/SearchProtocols.swift,
