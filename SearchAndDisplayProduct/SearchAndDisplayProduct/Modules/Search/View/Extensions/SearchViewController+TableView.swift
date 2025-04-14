@@ -9,7 +9,7 @@ import UIKit
 
 extension SearchViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return suggestedSearches.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -18,6 +18,8 @@ extension SearchViewController: UITableViewDataSource {
         else {
             return UITableViewCell()
         }
+        cell.delegate = self
+        cell.configure(text: suggestedSearches[indexPath.row], index: indexPath.row)
         return cell
     }
 }

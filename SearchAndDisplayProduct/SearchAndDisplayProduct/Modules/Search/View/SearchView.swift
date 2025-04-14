@@ -19,6 +19,7 @@ final class SearchView: UIView {
         searchBar.barStyle = .black
         searchBar.searchTextField.backgroundColor = .clear
         searchBar.searchTextField.textColor = .white
+        searchBar.placeholder = "Buscar en Mercado Libre"
         return searchBar
     }()
 
@@ -28,6 +29,7 @@ final class SearchView: UIView {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.delegate = delegate
         tableView.dataSource = delegate
+        tableView.separatorStyle = .none
         return tableView
     }()
 
@@ -47,9 +49,9 @@ final class SearchView: UIView {
     }
 
     private func setup() {
+        backgroundColor = .white
         addSubviews()
         addConstraints()
-        backgroundColor = .white
         addGradient()
     }
 
@@ -67,7 +69,13 @@ final class SearchView: UIView {
         layoutIfNeeded()
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 90)
-        gradientLayer.colors = [UIColor.getColorWith(hex: "#98f3f5").cgColor, UIColor.white.cgColor]
+        gradientLayer.colors = [UIColor.getColorWith(hex: "#fcd76f").cgColor, UIColor.white.cgColor]
         self.layer.insertSublayer(gradientLayer, at: 0)
+    }
+
+    func reloadTable() {
+        DispatchQueue.main.async {
+            self.suggestionsTableView.reloadData()
+        }
     }
 }

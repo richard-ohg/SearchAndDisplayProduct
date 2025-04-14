@@ -9,7 +9,9 @@ import UIKit
 
 extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let text = searchBar.text, text.count > 3 else { return }
-        print(text)
+        guard let text = searchBar.text, text.count > 2 else { return }
+        searchBar.resignFirstResponder()
+        searchBar.text = ""
+        presenter?.addNewSearch(text: text)
     }
 }
