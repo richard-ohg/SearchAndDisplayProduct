@@ -13,11 +13,15 @@ class ProductListViewController: UIViewController {
     var presenter: ProductList_ViewToPresenterProtocol?
     var searchText: String?
 
+    lazy var productListView: ProductListView = {
+        return ProductListView(delegate: self)
+    }()
+
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = searchText
-        view.backgroundColor = .white
+        view = productListView
         guard let searchText = searchText else { return }
         showSpinner()
         presenter?.fetchProductList(searchTerm: searchText)
@@ -26,6 +30,7 @@ class ProductListViewController: UIViewController {
 
 extension ProductListViewController: SpinnerDisplayable {}
 extension ProductListViewController: MessageDisplayable {}
+extension ProductListViewController: ProductListViewDelegate {}
 
 // MARK: - P R E S E N T E R · T O · V I E W
 extension ProductListViewController: ProductList_PresenterToViewProtocol {
