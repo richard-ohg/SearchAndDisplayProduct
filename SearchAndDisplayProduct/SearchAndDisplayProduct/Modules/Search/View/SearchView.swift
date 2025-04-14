@@ -14,15 +14,6 @@ final class SearchView: UIView {
 
     weak var delegate: (SearchViewDelegate & UITableViewDelegate & UITableViewDataSource)?
 
-    lazy var searchBar: UISearchBar = {
-        let searchBar = UISearchBar()
-        searchBar.barStyle = .black
-        searchBar.searchTextField.backgroundColor = .clear
-        searchBar.searchTextField.textColor = .white
-        searchBar.placeholder = "Buscar en Mercado Libre"
-        return searchBar
-    }()
-
     lazy var suggestionsTableView: UITableView = {
         let tableView = UITableView()
         tableView.register(SuggestionsTableViewCell.self, forCellReuseIdentifier: SuggestionsTableViewCell.reuseIdentifier)
@@ -65,17 +56,11 @@ final class SearchView: UIView {
             .pinEdges(to: layoutMarginsGuide)
     }
 
-    private func addGradient() {
-        layoutIfNeeded()
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 90)
-        gradientLayer.colors = [UIColor.getColorWith(hex: "#fcd76f").cgColor, UIColor.white.cgColor]
-        self.layer.insertSublayer(gradientLayer, at: 0)
-    }
-
     func reloadTable() {
         DispatchQueue.main.async {
             self.suggestionsTableView.reloadData()
         }
     }
 }
+
+extension SearchView: BackgroundGradientProtocol {}

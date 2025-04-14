@@ -15,6 +15,7 @@ class SearchViewController: UIViewController {
 
     lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
+        searchBar.placeholder = AppLocalized.searchBarPlaceholder
         searchBar.delegate = self
         return searchBar
     }()
