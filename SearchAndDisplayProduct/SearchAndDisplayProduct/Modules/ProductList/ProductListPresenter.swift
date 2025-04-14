@@ -29,7 +29,7 @@ extension ProductListPresenter: ProductList_InteractorToPresenterProtocol {
         view?.displayProductList(viewModel: viewModel)
     }
 
-    func showError() {
-        view?.showError()
+    func showError(error: Error) {
+        view?.showError(error: error)
     }
 }

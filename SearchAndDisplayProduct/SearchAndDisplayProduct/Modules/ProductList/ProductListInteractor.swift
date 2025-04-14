@@ -15,10 +15,10 @@ class ProductListInteractor: ProductList_PresenterToInteractorProtocol {
         Task {
             let result = await RequestManager.shared.fetchProducts(searchTerm: searchTerm)
             switch result {
-            case .success(let success):
-                presenter?.presentProductList(response: success)
-            case .failure(let failure):
-                presenter?.showError()
+            case .success(let response):
+                presenter?.presentProductList(response: response)
+            case .failure(let error):
+                presenter?.showError(error: error)
             }
         }
     }
