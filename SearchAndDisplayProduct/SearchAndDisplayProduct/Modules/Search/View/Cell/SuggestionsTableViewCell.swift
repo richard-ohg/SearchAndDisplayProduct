@@ -7,7 +7,14 @@
 
 import UIKit
 
+protocol SuggestionsTableViewCellDelegate: AnyObject {
+    func removeButtonTapped(index: Int)
+}
+
 class SuggestionsTableViewCell: UITableViewCell {
+
+    weak var delegate: SuggestionsTableViewCellDelegate?
+    var index: Int?
 
     lazy var iconImageView: UIImageView = {
         let imageView = UIImageView()
@@ -20,7 +27,6 @@ class SuggestionsTableViewCell: UITableViewCell {
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.text = "PruebaPruebaPruebaPruebaPruebaPruebaPruebaPruebaPruebaPruebaPruebaPruebaPruebaPruebaPruebaPruebaPruebaPruebaPruebaPruebaPruebaPruebaPruebaPruebaPruebaPruebaPruebaPrueba"
         label.font = .systemFont(ofSize: 17, weight: .medium)
         return label
     }()
@@ -45,7 +51,7 @@ class SuggestionsTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func setupUI() {
+    private func setupUI() {
         selectionStyle = .none
         addSubviews()
         addConstraints()
@@ -66,8 +72,8 @@ class SuggestionsTableViewCell: UITableViewCell {
 
         titleLabel
             .pin(.leading, to: iconImageView.trailingAnchor, offset: 10)
-            .pin(.top, to: contentView.topAnchor, offset: 10)
-            .pin(.bottom, to: contentView.bottomAnchor, offset: -10)
+            .pin(.top, to: contentView.topAnchor, offset: 20)
+            .pin(.bottom, to: contentView.bottomAnchor, offset: -20)
 
         removeButton
             .pin(.height, .width, constant: 30)
@@ -77,7 +83,14 @@ class SuggestionsTableViewCell: UITableViewCell {
     }
 
     @objc func removeButtonTapped() {
-        print("tapped")
+        guard let index = index else { return }
+        delegate?.removeButtonTapped(index: index)
+    }
+
+    func configure(text: String, index: Int) {
+        titleLabel.text = text
+        self.index = index
+        contentView.layoutIfNeeded()
     }
 }
 
