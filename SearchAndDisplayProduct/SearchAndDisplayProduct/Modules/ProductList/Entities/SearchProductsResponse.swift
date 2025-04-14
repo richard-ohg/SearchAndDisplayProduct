@@ -28,18 +28,19 @@ struct Paging: Decodable {
 
 struct Product: Decodable {
     let id: String
-    let dateCreated: Date
+    let dateCreated: String
     let catalogProductID: String
-    let status: Status
-    let domainID: DomainID
+    let status: String
+    let domainID: String
     let settings: Settings
     let name: String
     let attributes: [Attribute]
     let pictures: [Picture]
-    let qualityType: QualityType
-    let priority: Priority
-    let type: TypeEnum
-    let siteID: SiteID
+    let parentID: String
+    let qualityType: String
+    let priority: String
+    let type: String
+    let siteID: String
     let keywords, description: String
 
     enum CodingKeys: String, CodingKey {
@@ -50,6 +51,7 @@ struct Product: Decodable {
         case domainID = "domain_id"
         case settings, name
         case attributes, pictures
+        case parentID = "parent_id"
         case qualityType = "quality_type"
         case priority, type
         case siteID = "site_id"
@@ -70,47 +72,19 @@ struct Attribute: Codable {
     }
 }
 
-enum DomainID: String, Codable {
-    case mlmCellphones = "MLM-CELLPHONES"
-}
-
 // MARK: - Picture
 struct Picture: Codable {
     let id: String
     let url: String
 }
 
-enum Priority: String, Codable {
-    case medium = "MEDIUM"
-}
-
-enum QualityType: String, Codable {
-    case primitive = "PRIMITIVE"
-}
-
 // MARK: - Settings
 struct Settings: Codable {
-    let listingStrategy: ListingStrategy
+    let listingStrategy: String
     let exclusive: Bool
 
     enum CodingKeys: String, CodingKey {
         case listingStrategy = "listing_strategy"
         case exclusive
     }
-}
-
-enum ListingStrategy: String, Codable {
-    case catalogRequired = "catalog_required"
-}
-
-enum SiteID: String, Codable {
-    case mlm = "MLM"
-}
-
-enum Status: String, Codable {
-    case active = "active"
-}
-
-enum TypeEnum: String, Codable {
-    case product = "PRODUCT"
 }

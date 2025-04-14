@@ -11,5 +11,16 @@ import Foundation
 class ProductListInteractor: ProductList_PresenterToInteractorProtocol {
     weak var presenter: ProductList_InteractorToPresenterProtocol?
 
+    func fetchProductList(searchTerm: String) {
+        Task {
+            let result = await RequestManager.shared.fetchProducts(searchTerm: searchTerm)
+            switch result {
+            case .success(let success):
+                presenter?.presentProductList()
+            case .failure(let failure):
+                presenter?.showError()
+            }
+        }
+    }
 }
 

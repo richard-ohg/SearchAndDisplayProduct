@@ -17,10 +17,20 @@ class ProductListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = searchText
-        view.backgroundColor = .red
+        view.backgroundColor = .white
+        guard let searchText = searchText else { return }
+        presenter?.fetchProductList(searchTerm: searchText)
     }
 }
 
 // MARK: - P R E S E N T E R · T O · V I E W
 extension ProductListViewController: ProductList_PresenterToViewProtocol {
+
+    func displayProductList() {
+
+    }
+
+    func showError() {
+
+    }
 }
