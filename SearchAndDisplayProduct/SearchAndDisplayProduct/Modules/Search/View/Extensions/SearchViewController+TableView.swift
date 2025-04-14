@@ -24,4 +24,10 @@ extension SearchViewController: UITableViewDataSource {
     }
 }
 
-extension SearchViewController: UITableViewDelegate {}
+extension SearchViewController: UITableViewDelegate {
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let text = suggestedSearches[indexPath.row]
+        presenter?.goToProductList(searchText: text)
+    }
+}

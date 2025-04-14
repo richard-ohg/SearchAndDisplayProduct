@@ -13,5 +13,6 @@ extension SearchViewController: UISearchBarDelegate {
         searchBar.resignFirstResponder()
         searchBar.text = ""
         presenter?.addNewSearch(text: text)
+        presenter?.goToProductList(searchText: text)
     }
 }

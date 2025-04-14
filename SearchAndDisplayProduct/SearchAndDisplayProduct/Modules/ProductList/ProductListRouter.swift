@@ -12,7 +12,7 @@ class ProductListRouter {
     
     weak var viewController: UIViewController?
 	
-    static func createModule() -> UIViewController {
+    static func createModule(searchText: String) -> UIViewController {
         
         let view = ProductListViewController()
         let presenter = ProductListPresenter()
@@ -20,6 +20,7 @@ class ProductListRouter {
         let router = ProductListRouter()
         
         view.presenter = presenter
+        view.searchText = searchText
         presenter.view = view
         presenter.interactor = interactor
         presenter.router = router

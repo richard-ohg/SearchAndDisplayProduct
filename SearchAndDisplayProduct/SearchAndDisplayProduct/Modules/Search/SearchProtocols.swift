@@ -17,6 +17,8 @@ protocol Search_ViewToPresenterProtocol: AnyObject {
     func fetchSuggestedSearches()
     func addNewSearch(text: String)
     func removeSearch(text: String)
+
+    func goToProductList(searchText: String)
 }
 
 // MARK: PRESENTER -> INTERACTOR
@@ -43,4 +45,6 @@ protocol Search_PresenterToViewProtocol: AnyObject {
 
 // MARK: PRESENTER -> ROUTER
 protocol Search_PresenterToRouterProtocol: AnyObject {
+
+    func goToProductList(searchText: String)
 }

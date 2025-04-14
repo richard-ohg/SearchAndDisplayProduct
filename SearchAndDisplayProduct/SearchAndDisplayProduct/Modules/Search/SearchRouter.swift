@@ -31,5 +31,9 @@ class SearchRouter {
 }
 
 extension SearchRouter: Search_PresenterToRouterProtocol {
-    
+
+    func goToProductList(searchText: String) {
+        let nextView = ProductListRouter.createModule(searchText: searchText)
+        viewController?.navigationController?.pushViewController(nextView, animated: true)
+    }
 }

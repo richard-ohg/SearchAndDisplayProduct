@@ -25,6 +25,10 @@ class SearchPresenter: Search_ViewToPresenterProtocol {
     func removeSearch(text: String) {
         interactor?.removeSearch(text: text)
     }
+
+    func goToProductList(searchText: String) {
+        router?.goToProductList(searchText: searchText)
+    }
 }
 
 // MARK: - I N T E R A C T O R · T O · P R E S E N T E R

@@ -11,10 +11,12 @@ import UIKit
 class ProductListViewController: UIViewController {
 
     var presenter: ProductList_ViewToPresenterProtocol?
+    var searchText: String?
 
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = searchText
         view.backgroundColor = .red
     }
 }
