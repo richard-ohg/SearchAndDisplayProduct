@@ -29,11 +29,14 @@
 				Common/Extensions/IntExtension.swift,
 				Common/Extensions/StringExtension.swift,
 				Common/Extensions/UIColorExtension.swift,
+				Common/Extensions/UIViewExtension.swift,
+				"Common/Utils/UIView+AppKitLayoutAnchor.swift",
 				Modules/Search/SearchInteractor.swift,
 				Modules/Search/SearchPresenter.swift,
 				Modules/Search/SearchProtocols.swift,
 				Modules/Search/SearchRouter.swift,
-				Modules/Search/SearchViewController.swift,
+				Modules/Search/View/SearchView.swift,
+				Modules/Search/View/SearchViewController.swift,
 				Networking/Errors/ApiError.swift,
 				Networking/Protocols/ApiClientServiceProtocol.swift,
 				Networking/StatusResponse/HttpResponseStatus.swift,
@@ -41,6 +44,7 @@
 				Networking/URLBuilder/Method.swift,
 				Networking/URLBuilder/Path.swift,
 				Networking/URLBuilder/URLBuilder.swift,
+				Resources/Images.swift,
 			);
 			target = 79F25B292DAA4B9400024BDF /* SearchAndDisplayProductTests */;
 		};
