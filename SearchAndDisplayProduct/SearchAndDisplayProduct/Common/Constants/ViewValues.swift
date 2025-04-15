@@ -39,4 +39,9 @@ struct ViewValues {
     static let suggestedElementsToShow: Int = 5
 
     static let emptyStateLabelSizeFont: CGFloat = 18
+    static let emptyStateHeightImage: CGFloat = 250
+    static let emptyStateWidthImage: CGFloat = 250
+    static let emptyStateOffsetCenterYImage: CGFloat = 20
+    static let emptyStateLabelTop: CGFloat = 10
+    static let emptyStateImageCornerRadius: CGFloat = 10
 }

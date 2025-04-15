@@ -13,7 +13,7 @@ class EmptyStateView: UIView {
         let image = UIImageView()
         image.image = UIImage(named: Images.emptySearch)
         image.contentMode = .scaleAspectFill
-        image.setCornerRadius(withValue: 10)
+        image.setCornerRadius(withValue: ViewValues.emptyStateImageCornerRadius)
         return image
     }()
 
@@ -49,13 +49,13 @@ class EmptyStateView: UIView {
 
     private func addConstraints() {
         imageView
-            .pin(.height, constant: 250)
-            .pin(.width, constant: 250)
+            .pin(.height, constant: ViewValues.emptyStateHeightImage)
+            .pin(.width, constant: ViewValues.emptyStateHeightImage)
             .pin(.centerX, to: centerXAnchor)
-            .pin(.centerY, to: centerYAnchor, offset: -20)
+            .pin(.centerY, to: centerYAnchor, offset: -ViewValues.emptyStateOffsetCenterYImage)
 
         label
-            .pin(.top, to: imageView.bottomAnchor, offset: 10)
+            .pin(.top, to: imageView.bottomAnchor, offset: ViewValues.emptyStateLabelTop)
             .pin(.leading, to: imageView.leadingAnchor)
             .pin(.trailing, to: imageView.trailingAnchor)
     }
