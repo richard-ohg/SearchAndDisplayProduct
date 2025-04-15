@@ -28,6 +28,10 @@ class ProductListPresenter: ProductList_ViewToPresenterProtocol {
     func getItemsCount() -> Int {
         return viewModel.count
     }
+
+    func goToProductDetail(productId: String)  {
+        router?.goToProductDetail(productId: productId)
+    }
 }
 
 // MARK: - I N T E R A C T O R · T O · P R E S E N T E R

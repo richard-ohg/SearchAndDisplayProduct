@@ -34,6 +34,7 @@ extension ProductListViewController: UICollectionViewDataSource {
 
 extension ProductListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("selected")
+        guard let productId = presenter?.getItem(with: indexPath.row).id else { return }
+        presenter?.goToProductDetail(productId: productId)
     }
 }

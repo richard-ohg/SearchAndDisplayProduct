@@ -10,7 +10,7 @@ import UIKit
 
 class ProductDetailRouter {
 	
-    static func createModule() -> UIViewController {
+    static func createModule(productId: String) -> UIViewController {
         
         let view = ProductDetailViewController()
         let presenter = ProductDetailPresenter()
@@ -18,6 +18,7 @@ class ProductDetailRouter {
         let router = ProductDetailRouter()
         
         view.presenter = presenter
+        view.productId = productId
         presenter.view = view
         presenter.interactor = interactor
         presenter.router = router

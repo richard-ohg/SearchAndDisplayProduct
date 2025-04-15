@@ -32,5 +32,8 @@ class ProductListRouter {
 }
 
 extension ProductListRouter: ProductList_PresenterToRouterProtocol {
-    
+    func goToProductDetail(productId: String) {
+        let nextView = ProductDetailRouter.createModule(productId: productId)
+        viewController?.navigationController?.pushViewController(nextView, animated: true)
+    }
 }
