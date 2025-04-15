@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		79C197B72DADDC3F007FD6BF /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 79C197B62DADDC3F007FD6BF /* Kingfisher */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		79F25B2B2DAA4B9400024BDF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -25,6 +29,7 @@
 		79C197042DAB5023007FD6BF /* Exceptions for "SearchAndDisplayProduct" folder in "SearchAndDisplayProductTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Common/Constants/Colors.swift,
 				Common/Extensions/DoubleExtension.swift,
 				Common/Extensions/IntExtension.swift,
 				Common/Extensions/StringExtension.swift,
@@ -34,6 +39,7 @@
 				Common/Localize/AppLocalized.swift,
 				Common/RequestManager/RequesManager.swift,
 				"Common/Utils/UIView+AppKitLayoutAnchor.swift",
+				Common/Views/ProductListCollectionView.swift,
 				Common/Views/Protocols/BackgroundGradient.swift,
 				Common/Views/Protocols/MessageDisplayable.swift,
 				Common/Views/Protocols/Reusable.swift,
@@ -45,6 +51,7 @@
 				Modules/ProductList/ProductListPresenter.swift,
 				Modules/ProductList/ProductListProtocols.swift,
 				Modules/ProductList/ProductListRouter.swift,
+				Modules/ProductList/View/Cell/ProductListViewCell.swift,
 				Modules/ProductList/View/ProductListView.swift,
 				Modules/ProductList/View/ProductListViewController.swift,
 				Modules/ProductList/ViewModel/ProductListMapper.swift,
@@ -103,6 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79C197B72DADDC3F007FD6BF /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,11 +124,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		79C197B52DADDC3F007FD6BF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		79F25B0B2DAA4B9200024BDF = {
 			isa = PBXGroup;
 			children = (
 				79F25B162DAA4B9200024BDF /* SearchAndDisplayProduct */,
 				79F25B2D2DAA4B9400024BDF /* SearchAndDisplayProductTests */,
+				79C197B52DADDC3F007FD6BF /* Frameworks */,
 				79F25B152DAA4B9200024BDF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -154,6 +170,7 @@
 			);
 			name = SearchAndDisplayProduct;
 			packageProductDependencies = (
+				79C197B62DADDC3F007FD6BF /* Kingfisher */,
 			);
 			productName = SearchAndDisplayProduct;
 			productReference = 79F25B142DAA4B9200024BDF /* SearchAndDisplayProduct.app */;
@@ -516,6 +533,14 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		79C197B62DADDC3F007FD6BF /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 79F25BA32DAA5C8E00024BDF /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 79F25B0C2DAA4B9200024BDF /* Project object */;
 }
