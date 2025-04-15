@@ -42,6 +42,8 @@
 				"Common/Utils/UIView+AppKitLayoutAnchor.swift",
 				Common/Utils/Utils.swift,
 				Common/Views/EmptyStateView.swift,
+				Common/Views/GalleryCarrusel/GalleryCarruselView.swift,
+				Common/Views/GalleryCarrusel/GalleryCollectionViewCell.swift,
 				Common/Views/ProductListCollectionView.swift,
 				Common/Views/Protocols/BackgroundGradient.swift,
 				Common/Views/Protocols/MessageDisplayable.swift,
