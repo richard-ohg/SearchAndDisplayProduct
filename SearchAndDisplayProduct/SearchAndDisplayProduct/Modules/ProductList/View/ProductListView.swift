@@ -54,6 +54,10 @@ final class ProductListView: UIView {
             .pin(.trailing, to: trailingAnchor)
             .pin(.bottom, to: layoutMarginsGuide.bottomAnchor)
     }
+
+    func reload() {
+        productsCollectionView.reloadData()
+    }
 }
 
 extension ProductListView: BackgroundGradientProtocol {}

@@ -15,6 +15,8 @@ protocol ProductList_ViewToPresenterProtocol: AnyObject {
 	var router: ProductList_PresenterToRouterProtocol? { get set }
 
     func fetchProductList(searchTerm: String)
+    func getItem(with: Int) -> ProductListViewModel
+    func getItemsCount() -> Int
 }
 
 // MARK: PRESENTER -> INTERACTOR
@@ -35,7 +37,7 @@ protocol ProductList_InteractorToPresenterProtocol: AnyObject {
 protocol ProductList_PresenterToViewProtocol: AnyObject {
     var presenter: ProductList_ViewToPresenterProtocol? { get set }
 
-    func displayProductList(viewModel: [ProductListViewModel])
+    func displayProductList()
     func showError(error: Error)
 }
 
