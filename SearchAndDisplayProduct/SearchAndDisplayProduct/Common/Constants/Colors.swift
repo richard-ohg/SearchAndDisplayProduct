@@ -17,4 +17,7 @@ struct Colors {
     static let collectionCellBackgroundColor = UIColor.white
     static let priceWithDiscount = UIColor.getColorWith(hex: "#c8180d")
     static let shippingText = UIColor.getColorWith(hex: "#2e8241")
+    static let backgroundGalleryView = UIColor.white
+    static let currentPageIndicator = UIColor.getColorWith(hex: "#1c42e8")
+    static let pageIndicator = UIColor.getColorWith(hex: "#dedede")
 }

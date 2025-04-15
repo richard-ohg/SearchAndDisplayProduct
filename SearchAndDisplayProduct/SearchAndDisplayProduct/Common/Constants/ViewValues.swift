@@ -44,4 +44,7 @@ struct ViewValues {
     static let emptyStateOffsetCenterYImage: CGFloat = 20
     static let emptyStateLabelTop: CGFloat = 10
     static let emptyStateImageCornerRadius: CGFloat = 10
+
+    static let minimumLineSpacingGalleryCollection: CGFloat = 10
+    static let heightCollectionImages: CGFloat = 320
 }
