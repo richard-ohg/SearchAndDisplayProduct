@@ -9,14 +9,9 @@ import UIKit
 
 class GalleryCollectionViewCell: UICollectionViewCell {
 
-    lazy var viewContainer: UIView = {
-        let view = UIView()
-        return view
-    }()
-
     lazy var productImage: UIImageView = {
         let image = UIImageView()
-        image.contentMode = .scaleAspectFill
+        image.contentMode = .scaleToFill
         return image
     }()
 
