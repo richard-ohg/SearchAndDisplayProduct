@@ -39,6 +39,7 @@ protocol ProductList_PresenterToViewProtocol: AnyObject {
 
     func displayProductList()
     func showError(error: Error)
+    func showEmptyState()
 }
 
 // MARK: PRESENTER -> ROUTER

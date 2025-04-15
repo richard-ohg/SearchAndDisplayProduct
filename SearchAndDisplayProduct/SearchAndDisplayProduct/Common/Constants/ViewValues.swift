@@ -37,4 +37,6 @@ struct ViewValues {
     static let cornerRadiusCell: CGFloat = 10
 
     static let suggestedElementsToShow: Int = 5
+
+    static let emptyStateLabelSizeFont: CGFloat = 18
 }

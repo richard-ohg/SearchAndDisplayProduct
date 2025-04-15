@@ -17,4 +17,6 @@ struct AppLocalized {
     static let priceTitle = "Precio"
     static let addToCartButton = "Agregar a carrito"
     static let shipping = "Envío gratis"
+
+    static let emptyState = "No se encontraron resultados"
 }

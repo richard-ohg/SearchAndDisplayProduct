@@ -23,4 +23,11 @@ extension ProductListViewController: ProductList_PresenterToViewProtocol {
             self.presentSimpleAlert(title: AppLocalized.errorTitle, message: error.localizedDescription)
         }
     }
+
+    func showEmptyState() {
+        DispatchQueue.main.async {
+            self.hideSpinner()
+            self.productListView.showEmptyState()
+        }
+    }
 }

@@ -34,6 +34,10 @@ class ProductListPresenter: ProductList_ViewToPresenterProtocol {
 extension ProductListPresenter: ProductList_InteractorToPresenterProtocol {
 
     func presentProductList(response: SearchProductsResponse) {
+        guard response.results.isNotEmpty else {
+            view?.showEmptyState()
+            return
+        }
         viewModel = response.results.map(mapper.map(entity:))
         view?.displayProductList()
     }

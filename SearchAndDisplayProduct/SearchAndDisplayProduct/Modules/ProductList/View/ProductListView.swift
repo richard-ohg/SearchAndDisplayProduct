@@ -21,6 +21,12 @@ final class ProductListView: UIView {
         return collectionView
     }()
 
+    lazy var emptyState: EmptyStateView = {
+        let view = EmptyStateView()
+        view.isHidden = true
+        return view
+    }()
+
     init(delegate: ProductListViewDelegate & UICollectionViewDelegate & UICollectionViewDataSource) {
         super.init(frame: .zero)
         self.delegate = delegate
@@ -44,7 +50,9 @@ final class ProductListView: UIView {
     }
 
     private func addSubviews() {
-        add(subviews: productsCollectionView)
+        add(subviews:
+                productsCollectionView,
+                emptyState)
     }
 
     private func addConstraints() {
@@ -53,10 +61,17 @@ final class ProductListView: UIView {
             .pin(.leading, to: leadingAnchor)
             .pin(.trailing, to: trailingAnchor)
             .pin(.bottom, to: layoutMarginsGuide.bottomAnchor)
+
+        emptyState.pinEdges(to: self)
     }
 
     func reload() {
         productsCollectionView.reloadData()
+    }
+
+    func showEmptyState() {
+        productsCollectionView.isHidden = true
+        emptyState.isHidden = false
     }
 }
 
