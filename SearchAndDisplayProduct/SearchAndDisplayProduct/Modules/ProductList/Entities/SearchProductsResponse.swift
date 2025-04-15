@@ -36,7 +36,7 @@ struct Product: Decodable {
     let name: String
     let attributes: [Attribute]
     let pictures: [Picture]
-    let parentID: String
+    let parentID: String?
     let qualityType: String
     let priority: String
     let type: String
