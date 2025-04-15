@@ -6,5 +6,5 @@
 //
 
 struct Images {
-    static let searchImage = "searchImage"
+    static let placeholder = "placeholderImage"
 }

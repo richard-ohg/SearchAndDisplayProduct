@@ -39,6 +39,7 @@
 				Common/Localize/AppLocalized.swift,
 				Common/RequestManager/RequesManager.swift,
 				"Common/Utils/UIView+AppKitLayoutAnchor.swift",
+				Common/Utils/Utils.swift,
 				Common/Views/ProductListCollectionView.swift,
 				Common/Views/Protocols/BackgroundGradient.swift,
 				Common/Views/Protocols/MessageDisplayable.swift,
