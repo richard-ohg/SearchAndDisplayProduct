@@ -22,6 +22,7 @@ class ProductDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view = productDetailView
+        productDetailView.setImages()
     }
 }
 
