@@ -11,7 +11,7 @@ extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let text = searchBar.text, text.count > 2 else { return }
         searchBar.resignFirstResponder()
-        searchBar.text = ""
+        searchBar.text = .empty
         presenter?.addNewSearch(text: text)
         presenter?.goToProductList(searchText: text)
     }
