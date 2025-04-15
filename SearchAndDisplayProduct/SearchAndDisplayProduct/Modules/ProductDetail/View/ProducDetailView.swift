@@ -13,10 +13,45 @@ protocol ProductDetailViewDelegate: AnyObject {}
 final class ProductDetailView: UIView {
     
     weak var delegate: ProductDetailViewDelegate?
-    
+
+    lazy var mainView: UIView = {
+        let view = UIView()
+        return view
+    }()
+
+    lazy var scrollView: UIScrollView = {
+        let view = UIScrollView()
+        view.showsVerticalScrollIndicator = false
+        return view
+    }()
+
+    lazy var containerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        return view
+    }()
+
+    lazy var mainStackView: UIStackView = {
+        let view = UIStackView()
+        view.axis = .vertical
+        view.spacing = 8
+        view.distribution = .fill
+        return view
+    }()
+
     lazy var galleryCollectionView: GalleryCarruselView = {
         let collection = GalleryCarruselView()
         return collection
+    }()
+
+    lazy var descriptionContainer: ExpandableView = {
+        let view = ExpandableView()
+        return view
+    }()
+
+    lazy var descriptionView: DescriptionView = {
+        let view = DescriptionView()
+        return view
     }()
 
     init(delegate: ProductDetailViewDelegate) {
@@ -24,38 +59,65 @@ final class ProductDetailView: UIView {
         self.delegate = delegate
         setup()
     }
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     private func setup() {
-        backgroundColor = Colors.collectionBackgroundColor
+        backgroundColor = .white
         addSubviews()
         addConstraints()
         addGradient()
     }
-    
+
     private func addSubviews() {
-        add(subviews: galleryCollectionView)
+        addSubview(mainView)
+        mainView.addSubview(scrollView)
+        scrollView.addSubview(containerView)
+        containerView.addSubview(mainStackView)
+        mainStackView.addSuviews(galleryCollectionView, descriptionContainer)
     }
-    
+
     private func addConstraints() {
-        galleryCollectionView
+        mainView
             .pin(.top, to: layoutMarginsGuide.topAnchor)
-            .pin(.leading, to: leadingAnchor)
-            .pin(.trailing, to: trailingAnchor)
+            .pin(.leading, .trailing, .bottom, to: self)
+
+        scrollView
+            .pinEdges(to: mainView)
+
+        containerView
+            .pinEdges(to: scrollView)
+            .pin(.height, to: mainView, priority: UILayoutPriority(250))
+            .pin(.width, to: mainView, relation: .equal)
+
+        mainStackView
+            .pinEdges(to: containerView)
+
+        galleryCollectionView
             .pin(.height, constant: 346)
+            .pin(.width, to: mainStackView, relation: .equal)
+
+        descriptionContainer
+            .pin(.leading, to: mainStackView.leadingAnchor, offset: 10)
+            .pin(.trailing, to: mainStackView.trailingAnchor, offset: -10)
+    }
+
+    func configure() {
+        descriptionView.configure(text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porta vestibulum erat, a dapibus dolor placerat sit amet. Sed hendrerit dui non nibh commodo, id efficitur justo tempus. Sed lorem nibh, cursus vitae consequat ac, mollis tristique erat. Nunc quam urna, faucibus in est at, interdum facilisis orci. Curabitur porta posuere purus, id auctor felis feugiat vitae. Maecenas scelerisque tempus magna. Phasellus at quam vel justo dapibus pharetra eget ac mauris. Maecenas tellus justo, sagittis nec convallis sit amet, vestibulum eget erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed consequat condimentum nisi, a pulvinar tellus malesuada in. Nullam id turpis elit. Integer a aliquet dolor, et venenatis leo. Sed vitae mattis orci. Nulla elit risus, tempus non vestibulum in, facilisis sed tortor.")
+        descriptionContainer.configure(title: "Description", isOpen: false, content: descriptionView)
+        setImages()
     }
 
     func setImages() {
         let imagesString = ["https://http2.mlstatic.com/D_NQ_NP_955830-MLA82798500814_032025-F.jpg", "https://http2.mlstatic.com/D_NQ_NP_745899-MLA82798554710_032025-F.jpg", "https://http2.mlstatic.com/D_NQ_NP_743087-MLA82798518516_032025-F.jpg","https://http2.mlstatic.com/D_NQ_NP_861199-MLA82798554732_032025-F.jpg","https://http2.mlstatic.com/D_NQ_NP_852119-MLA82798536416_032025-F.jpg"]
-        
+
         Utils.getImagesFromUrlString(urlStrings: imagesString) { [weak self] images in
             let imagesToShow: [UIImage] = images.isEmpty ? [UIImage(named: "noDisponible") ?? UIImage()] : images
             self?.galleryCollectionView.updateCarrousel(images: imagesToShow)
