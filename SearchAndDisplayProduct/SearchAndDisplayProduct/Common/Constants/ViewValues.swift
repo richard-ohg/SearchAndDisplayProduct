@@ -10,6 +10,7 @@ import UIKit
 struct ViewValues {
 
     static let widthScreen = UIScreen.main.bounds.width
+    static let gradientHeight: CGFloat = 90
     static let normalCollectionPadding: CGFloat = 5
     static let doubleCollectionPadding: CGFloat = 10
     static let multiplierTwo: CGFloat = 2
@@ -34,4 +35,6 @@ struct ViewValues {
     static let addToCartButtonTop: CGFloat = 20
 
     static let cornerRadiusCell: CGFloat = 10
+
+    static let suggestedElementsToShow: Int = 5
 }

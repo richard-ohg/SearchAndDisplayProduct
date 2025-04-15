@@ -15,8 +15,8 @@ extension BackgroundGradientProtocol where Self : UIView{
     func addGradient() {
         layoutIfNeeded()
         let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 90)
-        gradientLayer.colors = [UIColor.getColorWith(hex: "#fcd76f").cgColor, UIColor.white.cgColor]
+        gradientLayer.frame = CGRect(x: 0, y: 0, width: ViewValues.widthScreen, height: ViewValues.gradientHeight)
+        gradientLayer.colors = [Colors.gradientPrimaryColor.cgColor, Colors.gradientSecondColor.cgColor]
         self.layer.insertSublayer(gradientLayer, at: 0)
     }
 }

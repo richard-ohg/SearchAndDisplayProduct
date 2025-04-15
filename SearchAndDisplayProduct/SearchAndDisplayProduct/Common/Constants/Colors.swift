@@ -8,7 +8,8 @@
 import UIKit.UIColor
 
 struct Colors {
-    static let gradientSecondColor = UIColor.getColorWith(hex: "#fcd76f")
+    static let gradientPrimaryColor = UIColor.getColorWith(hex: "#fcd76f")
+    static let gradientSecondColor = UIColor.white
     static let defaultLabel = UIColor.getColorWith(hex: "#0e141f")
     static let addToCartTextButton = UIColor.black
     static let addToCartBackgroundButton = UIColor.getColorWith(hex: "#f0db54")

@@ -35,7 +35,7 @@ class SearchPresenter: Search_ViewToPresenterProtocol {
 extension SearchPresenter: Search_InteractorToPresenterProtocol {
 
     func presentSuggestedSearches(searches: [String]) {
-        var lastSearches = Array(searches.suffix(5))
+        var lastSearches = Array(searches.suffix(ViewValues.suggestedElementsToShow))
         lastSearches.reverse()
         view?.displaySuggestedSearches(searches: lastSearches)
     }
