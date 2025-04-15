@@ -32,4 +32,6 @@ struct ViewValues {
     static let priceLabelsTop: CGFloat = 5
     static let shippingLabelTop: CGFloat = 10
     static let addToCartButtonTop: CGFloat = 20
+
+    static let cornerRadiusCell: CGFloat = 10
 }

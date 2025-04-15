@@ -85,6 +85,7 @@ final class ProductListViewCell: UICollectionViewCell {
     // MARK: - Helpers
     private func configUI() {
         contentView.backgroundColor = Colors.collectionCellBackgroundColor
+        setCornerRadius(withValue: ViewValues.cornerRadiusCell)
         contentView.add(subviews:
                             productImageView,
                             nameProductLabel,
