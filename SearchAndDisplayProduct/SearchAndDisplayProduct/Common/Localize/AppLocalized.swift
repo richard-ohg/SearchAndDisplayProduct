@@ -13,4 +13,8 @@ struct AppLocalized {
     static let defaultCancelButton = "Cancelar"
 
     static let errorTitle = "Error"
+
+    static let priceTitle = "Precio"
+    static let addToCartButton = "Agregar a carrito"
+    static let shipping = "Envío gratis"
 }
