@@ -8,4 +8,6 @@
 struct Images {
     static let placeholder = "placeholderImage"
     static let emptySearch = "emptySearchImage"
+    static let chevronUp = "chevronUp"
+    static let chevronDown = "chevronDown"
 }

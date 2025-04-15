@@ -20,4 +20,6 @@ struct Colors {
     static let backgroundGalleryView = UIColor.white
     static let currentPageIndicator = UIColor.getColorWith(hex: "#1c42e8")
     static let pageIndicator = UIColor.getColorWith(hex: "#dedede")
+    static let dropDrownImage = UIColor.black
+    static let backgroundExpandableView = UIColor.white
 }

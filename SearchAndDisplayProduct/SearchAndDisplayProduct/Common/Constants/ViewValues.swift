@@ -47,4 +47,11 @@ struct ViewValues {
 
     static let minimumLineSpacingGalleryCollection: CGFloat = 10
     static let heightCollectionImages: CGFloat = 320
+
+    static let titleExpandableViewFontSize: CGFloat = 22
+    static let titleHeightExpandableView: CGFloat = 40
+    static let spaceStackExpandableView: CGFloat = 8
+    static let numberLinesTitleExpandableView: Int = 2
+    static let imageHeightWidthExpandableView: CGFloat = 20
+    static let leadingImageExpandableView: CGFloat = 4
 }
