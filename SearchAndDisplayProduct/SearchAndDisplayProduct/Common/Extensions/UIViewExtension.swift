@@ -13,4 +13,9 @@ extension UIView {
             self.addSubview(subview)
         }
     }
+
+    func setCornerRadius(withValue value: CGFloat) {
+        layer.masksToBounds = true
+        layer.cornerRadius = value
+    }
 }
