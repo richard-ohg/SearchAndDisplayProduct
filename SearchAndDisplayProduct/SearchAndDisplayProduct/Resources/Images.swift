@@ -7,4 +7,5 @@
 
 struct Images {
     static let placeholder = "placeholderImage"
+    static let emptySearch = "emptySearchImage"
 }

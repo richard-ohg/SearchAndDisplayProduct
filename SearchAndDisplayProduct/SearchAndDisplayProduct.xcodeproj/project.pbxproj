@@ -30,6 +30,7 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Common/Constants/Colors.swift,
+				Common/Extensions/ArrayExtension.swift,
 				Common/Extensions/DoubleExtension.swift,
 				Common/Extensions/IntExtension.swift,
 				Common/Extensions/StringExtension.swift,
@@ -40,6 +41,7 @@
 				Common/RequestManager/RequesManager.swift,
 				"Common/Utils/UIView+AppKitLayoutAnchor.swift",
 				Common/Utils/Utils.swift,
+				Common/Views/EmptyStateView.swift,
 				Common/Views/ProductListCollectionView.swift,
 				Common/Views/Protocols/BackgroundGradient.swift,
 				Common/Views/Protocols/MessageDisplayable.swift,
