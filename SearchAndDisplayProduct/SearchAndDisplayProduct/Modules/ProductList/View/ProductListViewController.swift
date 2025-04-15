@@ -46,3 +46,34 @@ extension ProductListViewController: ProductList_PresenterToViewProtocol {
         presentSimpleAlert(title: AppLocalized.errorTitle, message: error.localizedDescription)
     }
 }
+
+extension ProductListViewController: UICollectionViewDataSource {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        numberOfItemsInSection section: Int
+    ) -> Int {
+        return 5
+    }
+
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
+        guard
+            let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: ProductListViewCell.self.reuseIdentifier,
+                for: indexPath) as? ProductListViewCell
+        else {
+            return UICollectionViewCell()
+        }
+        let dataItem = ProductListViewModel(id: "11111", name: "Tenis Nike Big Nike Low color negro - adulto 12 US", imageURL: URL(string: "https://http2.mlstatic.com/D_NQ_NP_955830-MLA82798500814_032025-F.jpg"))
+        cell.configData(itemData: dataItem)
+        return cell
+    }
+}
+
+extension ProductListViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("selected")
+    }
+}

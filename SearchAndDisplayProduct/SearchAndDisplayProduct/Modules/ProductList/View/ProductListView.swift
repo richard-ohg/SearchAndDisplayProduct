@@ -12,9 +12,16 @@ protocol ProductListViewDelegate: AnyObject {
 
 final class ProductListView: UIView {
 
-    weak var delegate: ProductListViewDelegate?
+    weak var delegate: (ProductListViewDelegate & UICollectionViewDelegate & UICollectionViewDataSource)?
 
-    init(delegate: ProductListViewDelegate) {
+    lazy var productsCollectionView: ProductListCollectionView = {
+        let collectionView = ProductListCollectionView()
+        collectionView.delegate = delegate
+        collectionView.dataSource = delegate
+        return collectionView
+    }()
+
+    init(delegate: ProductListViewDelegate & UICollectionViewDelegate & UICollectionViewDataSource) {
         super.init(frame: .zero)
         self.delegate = delegate
         setup()
@@ -30,19 +37,23 @@ final class ProductListView: UIView {
     }
 
     private func setup() {
-        backgroundColor = .white
+        backgroundColor = Colors.collectionBackgroundColor
         addSubviews()
         addConstraints()
         addGradient()
     }
 
     private func addSubviews() {
+        add(subviews: productsCollectionView)
     }
 
     private func addConstraints() {
-
+        productsCollectionView
+            .pin(.top, to: layoutMarginsGuide.topAnchor)
+            .pin(.leading, to: leadingAnchor)
+            .pin(.trailing, to: trailingAnchor)
+            .pin(.bottom, to: layoutMarginsGuide.bottomAnchor)
     }
-
 }
 
 extension ProductListView: BackgroundGradientProtocol {}
