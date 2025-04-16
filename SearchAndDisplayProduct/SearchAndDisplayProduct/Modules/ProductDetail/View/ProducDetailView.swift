@@ -99,19 +99,19 @@ final class ProductDetailView: UIView {
 
         containerView
             .pinEdges(to: scrollView)
-            .pin(.height, to: mainView, priority: UILayoutPriority(250))
+            .pin(.height, to: mainView, priority: .defaultLow)
             .pin(.width, to: mainView, relation: .equal)
 
         mainStackView
             .pinEdges(to: containerView)
 
         galleryCollectionView
-            .pin(.height, constant: 346)
+            .pin(.height, constant: ViewValues.galleryCollectionwHeight)
             .pin(.width, to: mainStackView, relation: .equal)
 
         descriptionContainer
-            .pin(.leading, to: mainStackView.leadingAnchor, offset: 10)
-            .pin(.trailing, to: mainStackView.trailingAnchor, offset: -10)
+            .pin(.leading, to: mainStackView.leadingAnchor, offset: ViewValues.descriptionContainerPadding)
+            .pin(.trailing, to: mainStackView.trailingAnchor, offset: -ViewValues.descriptionContainerPadding)
     }
 
     func configure() {

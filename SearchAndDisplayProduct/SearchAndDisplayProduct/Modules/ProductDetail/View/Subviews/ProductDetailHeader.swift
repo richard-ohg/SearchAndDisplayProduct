@@ -13,13 +13,13 @@ class ProductDetailHeader: UIView {
         let view = UIStackView()
         view.backgroundColor = .white
         view.axis = .vertical
-        view.spacing = 4
+        view.spacing = ViewValues.stackSpacingHeader
         return view
     }()
 
     lazy var productNameLabel: UILabel = {
         let label = UILabel()
-        label.numberOfLines = 2
+        label.numberOfLines = ViewValues.productNameNumberLinesHeader
         label.textColor = Colors.defaultLabel
         label.font = UIFont.boldSystemFont(ofSize: ViewValues.productNameHeaderFontSize)
         label.setContentHuggingPriority(.defaultHigh, for: .vertical)
@@ -64,14 +64,14 @@ class ProductDetailHeader: UIView {
     private func addConstraints() {
         viewHeaderSection
             .pin(.top, .bottom, to: self)
-            .pin(.leading, to: self, constant: 16)
-            .pin(.trailing, to: self, constant: -16)
+            .pin(.leading, to: self, constant: ViewValues.leadingHeader)
+            .pin(.trailing, to: self, constant: -ViewValues.trailingHeader)
 
         idProductLabel
-            .pin(.height, constant: 21)
+            .pin(.height, constant: ViewValues.heightIdProductHeader)
 
         sellerLabel
-            .pin(.height, constant: 21)
+            .pin(.height, constant: ViewValues.heightSellerHeader)
     }
 
     func configure(
@@ -81,13 +81,13 @@ class ProductDetailHeader: UIView {
     ) {
         DispatchQueue.main.async {
             self.productNameLabel.text = name
-            self.idProductLabel.text = "Código del producto: \(productId)"
+            self.idProductLabel.text = AppLocalized.idProductLabel+productId
             self.createSellerName(sellerName: sellerName)
         }
     }
 
     private func createSellerName(sellerName: String) {
-        let seller = "Vendido por ".attributed(with: .systemFont(ofSize: ViewValues.sellerHeaderFontSize))
+        let seller = AppLocalized.sellerLabel.attributed(with: .systemFont(ofSize: ViewValues.sellerHeaderFontSize))
         let sellerName = sellerName.attributed(with: .boldSystemFont(ofSize: ViewValues.sellerHeaderFontSize))
         sellerLabel.attributedText = seller.concatenated(with: sellerName)
     }

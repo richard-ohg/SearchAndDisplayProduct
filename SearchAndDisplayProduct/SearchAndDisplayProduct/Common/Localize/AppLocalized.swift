@@ -19,4 +19,7 @@ struct AppLocalized {
     static let shipping = "Envío gratis"
 
     static let emptyState = "No se encontraron resultados"
+
+    static let idProductLabel = "Código del producto: "
+    static let sellerLabel = "Vendido por "
 }

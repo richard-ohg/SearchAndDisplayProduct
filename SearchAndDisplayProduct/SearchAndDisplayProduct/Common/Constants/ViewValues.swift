@@ -58,4 +58,13 @@ struct ViewValues {
     static let productNameHeaderFontSize: CGFloat = 18
     static let labelIdHeaderFontSize: CGFloat = 16
     static let sellerHeaderFontSize: CGFloat = 14
+    static let productNameNumberLinesHeader: Int = 2
+    static let stackSpacingHeader: CGFloat = 4
+    static let leadingHeader: CGFloat = 16
+    static let trailingHeader: CGFloat = 16
+    static let heightIdProductHeader: CGFloat = 21
+    static let heightSellerHeader: CGFloat = 21
+
+    static let galleryCollectionwHeight: CGFloat = 346
+    static let descriptionContainerPadding: CGFloat = 10
 }
