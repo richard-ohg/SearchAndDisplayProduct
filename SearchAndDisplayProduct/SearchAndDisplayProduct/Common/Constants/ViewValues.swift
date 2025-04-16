@@ -67,4 +67,7 @@ struct ViewValues {
 
     static let galleryCollectionwHeight: CGFloat = 346
     static let descriptionContainerPadding: CGFloat = 10
+    static let addToCartContainerHeight: CGFloat = 60
+    static let addToCartButtonHeight: CGFloat = 40
+    static let addToCartButtonPadding: CGFloat = 20
 }

@@ -59,6 +59,23 @@ final class ProductDetailView: UIView {
         return view
     }()
 
+    lazy var addToCartContainer: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        return view
+    }()
+
+    lazy var addToCartButton: UIButton = {
+        let button = UIButton()
+        button.setTitle(AppLocalized.addToCartButton, for: .normal)
+        button.setTitleColor(Colors.addToCartTextButton, for: .normal)
+        button.backgroundColor = Colors.addToCartBackgroundButton
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: ViewValues.addToCartButtonFontSize)
+        button.setContentHuggingPriority(.defaultHigh, for: .vertical)
+        button.setCornerRadius(withValue: ViewValues.addToCartButtonCornerRadius)
+        return button
+    }()
+
     init(delegate: ProductDetailViewDelegate) {
         super.init(frame: .zero)
         self.delegate = delegate
@@ -83,16 +100,18 @@ final class ProductDetailView: UIView {
 
     private func addSubviews() {
         addSubview(mainView)
+        addSubview(addToCartContainer)
         mainView.addSubview(scrollView)
         scrollView.addSubview(containerView)
         containerView.addSubview(mainStackView)
         mainStackView.addSuviews(productDetailHeader,galleryCollectionView, descriptionContainer)
+        addToCartContainer.addSubview(addToCartButton)
     }
 
     private func addConstraints() {
         mainView
             .pin(.top, to: layoutMarginsGuide.topAnchor)
-            .pin(.leading, .trailing, .bottom, to: self)
+            .pin(.leading, .trailing, to: self)
 
         scrollView
             .pinEdges(to: mainView)
@@ -112,6 +131,19 @@ final class ProductDetailView: UIView {
         descriptionContainer
             .pin(.leading, to: mainStackView.leadingAnchor, offset: ViewValues.descriptionContainerPadding)
             .pin(.trailing, to: mainStackView.trailingAnchor, offset: -ViewValues.descriptionContainerPadding)
+
+        addToCartContainer
+            .pin(.top, to: mainView.bottomAnchor)
+            .pin(.bottom, to: layoutMarginsGuide.bottomAnchor)
+            .pin(.leading, to: leadingAnchor)
+            .pin(.trailing, to: trailingAnchor)
+            .pin(.height, constant: ViewValues.addToCartContainerHeight)
+
+        addToCartButton
+            .pin(.height, constant: ViewValues.addToCartButtonHeight)
+            .pin(.leading, to: addToCartContainer.leadingAnchor, offset: ViewValues.addToCartButtonPadding)
+            .pin(.trailing, to: addToCartContainer.trailingAnchor, offset: -ViewValues.addToCartButtonPadding)
+            .pin(.centerY, to: addToCartContainer.centerYAnchor)
     }
 
     func configure() {
