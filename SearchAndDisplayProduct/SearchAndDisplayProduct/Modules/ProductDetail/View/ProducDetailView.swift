@@ -39,6 +39,11 @@ final class ProductDetailView: UIView {
         return view
     }()
 
+    lazy var productDetailHeader: ProductDetailHeader = {
+        let view = ProductDetailHeader()
+        return view
+    }()
+
     lazy var galleryCollectionView: GalleryCarruselView = {
         let collection = GalleryCarruselView()
         return collection
@@ -81,7 +86,7 @@ final class ProductDetailView: UIView {
         mainView.addSubview(scrollView)
         scrollView.addSubview(containerView)
         containerView.addSubview(mainStackView)
-        mainStackView.addSuviews(galleryCollectionView, descriptionContainer)
+        mainStackView.addSuviews(productDetailHeader,galleryCollectionView, descriptionContainer)
     }
 
     private func addConstraints() {
@@ -110,8 +115,9 @@ final class ProductDetailView: UIView {
     }
 
     func configure() {
+        productDetailHeader.configure(name: "Zapatilla Nike Big Nike Low Hombre Color Negro", productId: "MLM47165752", sellerName: "Mercado Libre")
         descriptionView.configure(text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porta vestibulum erat, a dapibus dolor placerat sit amet. Sed hendrerit dui non nibh commodo, id efficitur justo tempus. Sed lorem nibh, cursus vitae consequat ac, mollis tristique erat. Nunc quam urna, faucibus in est at, interdum facilisis orci. Curabitur porta posuere purus, id auctor felis feugiat vitae. Maecenas scelerisque tempus magna. Phasellus at quam vel justo dapibus pharetra eget ac mauris. Maecenas tellus justo, sagittis nec convallis sit amet, vestibulum eget erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed consequat condimentum nisi, a pulvinar tellus malesuada in. Nullam id turpis elit. Integer a aliquet dolor, et venenatis leo. Sed vitae mattis orci. Nulla elit risus, tempus non vestibulum in, facilisis sed tortor.")
-        descriptionContainer.configure(title: "Description", isOpen: false, content: descriptionView)
+        descriptionContainer.configure(title: "Description", isOpen: true, content: descriptionView)
         setImages()
     }
 
