@@ -5,7 +5,7 @@
 //  Created by Ricardo Omar Hernández on 12/04/25.
 //
 
-import Foundation
+import UIKit
 
 extension String {
     static var empty: String {
@@ -14,6 +14,10 @@ extension String {
     
     var isNotEmpty: Bool {
         !self.isEmpty
+    }
+
+    func attributed(with font: UIFont, color: UIColor = Colors.defaultLabel) -> NSAttributedString {
+        return NSAttributedString(string: self, attributes: [.font: font, .foregroundColor: color])
     }
 }
 

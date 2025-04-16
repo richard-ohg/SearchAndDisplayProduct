@@ -54,4 +54,8 @@ struct ViewValues {
     static let numberLinesTitleExpandableView: Int = 2
     static let imageHeightWidthExpandableView: CGFloat = 20
     static let leadingImageExpandableView: CGFloat = 4
+
+    static let productNameHeaderFontSize: CGFloat = 18
+    static let labelIdHeaderFontSize: CGFloat = 16
+    static let sellerHeaderFontSize: CGFloat = 14
 }
