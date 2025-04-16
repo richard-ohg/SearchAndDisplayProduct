@@ -1,5 +1,5 @@
 //
-//  DescriptionView.swift
+//  LabelView.swift
 //  SearchAndDisplayProduct
 //
 //  Created by Ricardo Omar Hernández on 15/04/25.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DescriptionView: UIView {
+class LabelView: UIView {
 
     lazy var labelView: UILabel = {
         let label = UILabel()

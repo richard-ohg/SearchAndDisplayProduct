@@ -54,8 +54,8 @@ final class ProductDetailView: UIView {
         return view
     }()
 
-    lazy var descriptionView: DescriptionView = {
-        let view = DescriptionView()
+    lazy var descriptionView: LabelView = {
+        let view = LabelView()
         return view
     }()
 
