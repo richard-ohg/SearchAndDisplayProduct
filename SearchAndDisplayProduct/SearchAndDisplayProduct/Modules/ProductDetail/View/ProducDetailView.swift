@@ -14,6 +14,11 @@ final class ProductDetailView: UIView {
     
     weak var delegate: ProductDetailViewDelegate?
 
+    enum TagIdentifier: Int {
+        case description = 1
+        case specs
+    }
+
     lazy var mainView: UIView = {
         let view = UIView()
         return view
@@ -51,6 +56,8 @@ final class ProductDetailView: UIView {
 
     lazy var descriptionContainer: ExpandableView = {
         let view = ExpandableView()
+        view.tag = TagIdentifier.description.rawValue
+        view.delegate = self
         return view
     }()
 
@@ -61,6 +68,8 @@ final class ProductDetailView: UIView {
 
     lazy var specsContainer: ExpandableView = {
         let view = ExpandableView()
+        view.tag = TagIdentifier.specs.rawValue
+        view.delegate = self
         return view
     }()
 

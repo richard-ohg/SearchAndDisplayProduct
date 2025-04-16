@@ -8,7 +8,7 @@
 import UIKit
 
 protocol ExpandableViewDelegate: AnyObject {
-    func tapped(isOpen: Bool)
+    func tapped(isOpen: Bool, view: ExpandableView)
 }
 
 public class ExpandableView: UIView {
@@ -123,6 +123,6 @@ public class ExpandableView: UIView {
 
     @objc private func dropdownButtonTapped(_ sender: UIButton) {
         isOpen = !isOpen
-        delegate?.tapped(isOpen: isOpen)
+        delegate?.tapped(isOpen: isOpen, view: self)
     }
 }

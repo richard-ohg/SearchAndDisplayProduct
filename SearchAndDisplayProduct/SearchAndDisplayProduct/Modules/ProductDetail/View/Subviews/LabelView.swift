@@ -32,7 +32,7 @@ class LabelView: UIView {
             .pin(.top, to: topAnchor, offset: 5)
             .pin(.leading, to: leadingAnchor, offset: 15)
             .pin(.trailing, to: trailingAnchor, offset: -15)
-            .pin(.bottom, to: bottomAnchor, offset: 5)
+            .pin(.bottom, to: bottomAnchor, offset: -5)
     }
 
     func configure(text: String) {
